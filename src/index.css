@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes weatherIconFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Custom classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s infinite;
+}
+
+.weather-icon-float {
+  animation: weatherIconFloat 3s ease-in-out infinite;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-dark {
+  background: rgba(17, 24, 39, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Gradient backgrounds */
+.bg-gradient-light {
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  transition: background 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+  transition: background 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* Hover effects */
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Weather card gradients */
+.weather-card-sunny {
+  background: linear-gradient(135deg, #ffd36b 0%, #ff9c44 100%);
+  box-shadow: 0 8px 32px 0 rgba(255, 167, 38, 0.3);
+  color: #1a202c;
+}
+
+.weather-card-rainy {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 8px 32px 0 rgba(0, 242, 254, 0.3);
+  color: #ffffff;
+}
+
+.weather-card-cloudy {
+  background: linear-gradient(135deg, #b8c6db 0%, #8795b9 100%);
+  box-shadow: 0 8px 32px 0 rgba(135, 149, 185, 0.3);
+  color: #1a202c;
+}
+
+/* Dark mode card styles */
+.dark-card {
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  color: #f3f4f6;
+}
+
+/* Loading animation enhancement */
+.loading-ring {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-left-color: #3b82f6;
+}
+
+/* Theme transition */
+.theme-transition {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-transition * {
+  transition: background-color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mode switch animation */
+@keyframes rotateSwitch {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(0.8); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.mode-switch-rotate {
+  animation: rotateSwitch 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Search and suggestions styling */
+.search-container {
+  position: relative;
+  z-index: 50;
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  z-index: 50;
+}
+
+.dark .search-suggestions {
+  background: rgba(17, 24, 39, 0.95);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.suggestion-item {
+  width: 100%;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+  color: #1a202c;
+}
+
+.dark .suggestion-item {
+  color: #f3f4f6;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 24px;
+}
+
+.dark .suggestion-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Remove the backdrop and blur effects */
+.search-backdrop {
+  display: none;
+}
+
+/* Ensure content below search stays in place */
+.content-section {
+  position: relative;
+  z-index: 40;
+}
+
+/* Dark mode specific text colors */
+.dark-mode-text {
+  color: #f3f4f6 !important;
+}
+
+.dark-mode-text-secondary {
+  color: #d1d5db !important;
+}
+
+/* Weather info cards in dark mode */
+.dark .weather-info-card {
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+}
+
+/* Ensure text is visible in dark mode */
+.dark .text-white {
+  color: #ffffff !important;
+}
+
+.dark .text-gray-800 {
+  color: #f3f4f6 !important;
+}
+
+.dark .placeholder-gray-400::placeholder {
+  color: #9ca3af !important;
+}
